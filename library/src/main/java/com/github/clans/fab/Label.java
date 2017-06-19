@@ -9,6 +9,7 @@ import android.graphics.Outline;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Xfermode;
 import android.graphics.drawable.Drawable;
@@ -67,17 +68,13 @@ public class Label extends TextView {
     }
 
     private int calculateMeasuredWidth() {
-        if (mRawWidth == 0) {
-            mRawWidth = getMeasuredWidth();
-        }
-        return getMeasuredWidth() + calculateShadowWidth();
+        mRawWidth = getMeasuredWidth();
+        return mRawWidth + calculateShadowWidth();
     }
 
     private int calculateMeasuredHeight() {
-        if (mRawHeight == 0) {
-            mRawHeight = getMeasuredHeight();
-        }
-        return getMeasuredHeight() + calculateShadowHeight();
+        mRawHeight = getMeasuredHeight();
+        return mRawHeight + calculateShadowHeight();
     }
 
     int calculateShadowWidth() {
